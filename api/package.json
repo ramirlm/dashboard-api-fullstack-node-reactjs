@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www --ignore __tests__ --testTimeout=10000 --watch",
+    "test": "jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -16,6 +17,8 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.0"
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.0",
+    "supertest": "^4.0.2"
   }
 }
