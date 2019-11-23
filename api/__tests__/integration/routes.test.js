@@ -27,21 +27,46 @@ const scan = {
    ]
 };
 
+<<<<<<< HEAD
 describe('Scan Endpoints', () => {
+=======
+beforeAll(() => {
+   console.log('Starting TDD development');
+});
+
+afterAll(() => {
+    // server.close(); TODO Fix
+    console.log('server closed');
+});
+
+
+describe('Scan Flow', () => {
+>>>>>>> 851f0d941157358ca90e3a2223eeebad51762630
 
    it('should return the scans list', async () => {
       const scanId = 1;
       const res = await request(app).get(`/scans/${scanId}`);
       expect(res.status).toEqual(200);
+<<<<<<< HEAD
       expect(res.body.scans).toHaveLength(0);
    });
 
    it('should save a valid scan and return HTTP 201', () => {   
+=======
+      // expect(res.body).toHaveProperty('post');
+   });
+
+   it('should save a scan and return HTTP 201', () => {   
+>>>>>>> 851f0d941157358ca90e3a2223eeebad51762630
       app.post('/scans', async (req, res) => {
          res.send(scan)
             .expect(201, done);  
        });
+<<<<<<< HEAD
        expect(res.body).toHaveProperty('id');
+=======
+       expect(res.body.scans).toHaveLength(0);
+>>>>>>> 851f0d941157358ca90e3a2223eeebad51762630
    });
 
    it('should save a scan without findings', async () => {
@@ -64,7 +89,11 @@ describe('Scan Endpoints', () => {
    it('should respond with status code 400 when an invalid timestamp is sent', async () => {
       const response = await request(app)
          .post('/scans')
+<<<<<<< HEAD
          .send(Object.assign({}, scan, { scanningAt: "Invalid timestamp" }));
+=======
+         .send(scan);
+>>>>>>> 851f0d941157358ca90e3a2223eeebad51762630
       
       expect(response.status).toEqual(400);
    });
@@ -82,6 +111,7 @@ describe('Scan Endpoints', () => {
       expect(res.statusCode).toEqual(404);
     });
 
+<<<<<<< HEAD
     it('should respond with status code 400 when an invalid finding record is sent', async () => {
       const response = await request(app)
          .post('/scans')
@@ -89,4 +119,6 @@ describe('Scan Endpoints', () => {
       
       expect(response.status).toEqual(400);
    });
+=======
+>>>>>>> 851f0d941157358ca90e3a2223eeebad51762630
 });
