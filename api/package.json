@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www --ignore __tests__",
-    "test": "jest --testTimeout=10000 --watch --runInBand"
+    "test": "jest --testTimeout=10000 --coverage"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,9 +14,11 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "mongoose": "^5.7.12",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "jest": "^24.9.0",
     "nodemon": "^2.0.0",
     "supertest": "^4.0.2"
